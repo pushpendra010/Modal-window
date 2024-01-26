@@ -1,10 +1,25 @@
 'use strict';
 
-const model = document.querySelector('.model');
+const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
-const btnCloseModel = document.querySelector('.close-model');
-const btnsShowModel = document.querySelectorAll('.show-modal');
-console.log(btnsShowModel);
-for (let i = 0; i < btnsShowModel.length; i++) {
-    console.log(btnsShowModel[i].textContent);
+const btnCloseModal = document.querySelector('.close-modal');
+const btnsShowModal = document.querySelectorAll('.show-modal');
+console.log(btnsShowModal);
+
+const openModel = function () {
+    console.log('button click')
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+};
+
+const closeModel = function () {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+};
+
+for (let i = 0; i < btnsShowModal.length; i++) {
+    btnsShowModal[i].addEventListener('click', openModel);
 }
+
+btnCloseModal.addEventListener('click', closeModel);
+overlay.addEventListener('click', closeModel);
